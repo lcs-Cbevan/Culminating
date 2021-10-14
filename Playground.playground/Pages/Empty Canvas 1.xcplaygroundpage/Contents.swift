@@ -18,6 +18,7 @@ import PlaygroundSupport
 import CanvasGraphics
 
 
+
 // Create canvas
 let canvas = Canvas(width: preferredWidth, height: preferredHeight)
 
@@ -64,16 +65,62 @@ canvas.drawShapesWithFill = false
 canvas.drawShapesWithBorders = true
 canvas.drawRectangle(at: Point (x: 100, y: -100), width: 60, height: 10)
 //Create Rectangle Variable
-var Rectangle: [Point] = []
-Rectangle.append(Point(x: 80, y: -100))
-Rectangle.append(Point(x: 80, y: -70))
-Rectangle.append(Point(x: 160, y: -70))
-Rectangle.append(Point(x: 160, y: -90))
-Rectangle.append(Point(x: 100, y: -90))
-Rectangle.append(Point(x: 100, y: -100))
-canvas.drawCustomShape(with: Rectangle)
+canvas.drawShapesWithFill = true
+var Rectangle1: [Point] = []
+Rectangle1.append(Point(x: 80, y: -100))
+Rectangle1.append(Point(x: 80, y: -70))
+Rectangle1.append(Point(x: 160, y: -70))
+Rectangle1.append(Point(x: 160, y: -90))
+Rectangle1.append(Point(x: 100, y: -90))
+Rectangle1.append(Point(x: 100, y: -100))
+canvas.drawCustomShape(with: Rectangle1)
+canvas.drawShapesWithFill = false
+var Rectangle2: [Point] = []
+Rectangle2.append(Point(x: 60, y: -100))
+Rectangle2.append(Point(x: 60, y: -50))
+Rectangle2.append(Point(x: 160, y: -50))
+Rectangle2.append(Point(x: 160, y: -70))
+Rectangle2.append(Point(x: 80, y: -70))
+Rectangle2.append(Point(x: 80, y: -100))
+canvas.drawCustomShape(with: Rectangle2)
+canvas.drawShapesWithFill = true
+var Rectangle3: [Point] = []
+Rectangle3.append(Point(x: 40, y: -100))
+Rectangle3.append(Point(x: 40, y: -30))
+Rectangle3.append(Point(x: 160, y: -30))
+Rectangle3.append(Point(x: 160, y: -50))
+Rectangle3.append(Point(x: 60, y: -50))
+Rectangle3.append(Point(x: 60, y: -100))
+canvas.drawCustomShape(with: Rectangle3)
+canvas.drawShapesWithFill = false
+var Rectangle4: [Point] = []
+Rectangle4.append(Point(x: 20, y: -100))
+Rectangle4.append(Point(x: 20, y: -10))
+Rectangle4.append(Point(x: 160, y: -10))
+Rectangle4.append(Point(x: 160, y: -30))
+Rectangle4.append(Point(x: 40, y: -30))
+Rectangle4.append(Point(x: 40, y: -100))
+canvas.drawCustomShape(with: Rectangle4)
+canvas.drawShapesWithFill = true
+var Rectangle5: [Point] = []
+Rectangle5.append(Point(x: 0, y: -100))
+Rectangle5.append(Point(x: 0, y: 10))
+Rectangle5.append(Point(x: 160, y: 10))
+Rectangle5.append(Point(x: 160, y: -10))
+Rectangle5.append(Point(x: 20, y: -10))
+Rectangle5.append(Point(x: 20, y: -100))
+canvas.drawCustomShape(with: Rectangle5)
+canvas.drawShapesWithFill = false
+var Rectangle6: [Point] = []
+Rectangle6.append(Point(x: -20, y: -100))
+Rectangle6.append(Point(x: -20, y: 30))
+Rectangle6.append(Point(x: 160, y: 30))
+Rectangle6.append(Point(x: 160, y: 10))
+Rectangle6.append(Point(x: 0, y: 10))
+Rectangle6.append(Point(x: 0, y: -100))
+canvas.drawCustomShape(with: Rectangle6)
 
-
+    
 /*:
  ## Show the Live View
  Don't see any results?
