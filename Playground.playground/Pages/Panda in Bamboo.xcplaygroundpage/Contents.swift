@@ -71,7 +71,7 @@ for y in stride(from: 40, through: 100, by: 5)
 {
 y
     //Draw Lines
-    canvas.drawLine(from: <#T##Point#>, to: <#T##Point#>)
+    canvas.drawLine(from: Point(x: -60, y: 80), to: Point(x: 60, y: 80))
     
 }
 //Draw Eyes
