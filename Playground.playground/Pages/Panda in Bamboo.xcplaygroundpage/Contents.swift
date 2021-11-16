@@ -58,20 +58,35 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
 
 // Begin writing your code below (you can remove the examples shown)
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
+//Draw Panda Face
+p.goto(dx: 0, dy: 0)
+canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 98, alpha: 100)
+canvas.drawEllipse(at: Point(x: 0, y: 100), width: 120, height: 120, borderWidth: 5)
+p.goToOrigin()
+p.goto(dx: 0, dy: 40)
 
-// Go back to origin
+//Add Gradient
+for y in stride(from: 40, through: 100, by: 5)
+{
+y
+    //Draw Lines
+    canvas.drawLine(from: <#T##Point#>, to: <#T##Point#>)
+    
+}
+//Draw Eyes
+p.goto(dx: -20, dy: 120)
+canvas.fillColor = Color(hue: 0, saturation: 100, brightness: 0, alpha: 100)
+canvas.drawEllipse(at: Point(x: 0, y: 0), width: 20, height: 20, borderWidth: 5)
+p.goto(dx: 40, dy: 0)
+canvas.drawEllipse(at: Point(x: 0, y: 0), width: 20, height: 20, borderWidth: 5)
+
+
+//Draw Panda Body
 p.goToOrigin()
 
-// Change the pen color
-p.penColor = .red
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
+
 
 /*:
  ## Show the Live View
