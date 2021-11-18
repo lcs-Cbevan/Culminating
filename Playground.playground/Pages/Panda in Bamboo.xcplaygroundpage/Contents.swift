@@ -58,36 +58,49 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
 
 // Begin writing your code below (you can remove the examples shown)
 
+//Draw Ground Background
+canvas.lineColor = Color(hue: 30, saturation: 100, brightness: 29, alpha: 100)
+for DirtHeight in stride(from: -400,
+                   through: -90,
+                   by: 2){
+    canvas.drawLine(from: Point(x:-400,y:DirtHeight), to: Point(x:400, y:DirtHeight))
+}
+
+//Draw Sky Background, Hue is either 186 or 3
+canvas.lineColor = Color(hue: 186, saturation: 100, brightness: 100, alpha: 100)
+
 
 //Draw Panda Face
 p.goto(dx: 0, dy: 0)
-canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 98, alpha: 100)
+canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 95, alpha: 100)
 canvas.drawEllipse(at: Point(x: 0, y: 100), width: 120, height: 120, borderWidth: 5)
 p.goToOrigin()
 p.goto(dx: 0, dy: 40)
 
-//Add Gradient
-for y in stride(from: 40, through: 100, by: 5)
-{
-y
-    //Draw Lines
-    canvas.drawLine(from: Point(x: -60, y: 80), to: Point(x: 60, y: 80))
-    
-}
 //Draw Eyes
-p.goto(dx: -20, dy: 120)
+p.goto(dx: -20, dy: 80)
 canvas.fillColor = Color(hue: 0, saturation: 100, brightness: 0, alpha: 100)
 canvas.drawEllipse(at: Point(x: 0, y: 0), width: 20, height: 20, borderWidth: 5)
 p.goto(dx: 40, dy: 0)
 canvas.drawEllipse(at: Point(x: 0, y: 0), width: 20, height: 20, borderWidth: 5)
-
-
-//Draw Panda Body
 p.goToOrigin()
 
+//Draw Panda Body
+canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 95, alpha: 100)
+canvas.drawEllipse(at: Point(x:0 , y:0 ), width: 80, height: 120, borderWidth: 5)
+
+//Draw Arms
+canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 10, alpha: 100)
+canvas.drawEllipse(at: Point(x:50, y:20), width: 40, height: 60, borderWidth: 5)
+canvas.drawEllipse(at: Point(x:-50, y:20), width: 40, height: 60, borderWidth: 5)
+
+//Draw Legs
+canvas.drawEllipse(at: Point(x:-20, y:-60), width: 40, height: 40, borderWidth: 5)
+canvas.drawEllipse(at: Point(x:20, y:-60), width: 40, height: 40, borderWidth: 5)
 
 
-
+    
+             
 /*:
  ## Show the Live View
  Don't see any results?

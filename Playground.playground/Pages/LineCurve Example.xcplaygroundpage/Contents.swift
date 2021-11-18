@@ -41,8 +41,8 @@ PlaygroundPage.current.liveView = canvas
  */
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
+//canvas.translate(to: Point(x: canvas.width / 2,
+                          // y: canvas.height / 2))
 
 // Show a grid
 canvas.drawAxes(withScale: true, by: 20, color: .black)
@@ -58,21 +58,14 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
 
 // Begin writing your code below (you can remove the examples shown)
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
-
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
-
-// Go back to origin
-p.goToOrigin()
-
-// Change the pen color
-p.penColor = .red
-
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
-
+//A loop to express the increase by 50 pattern
+for someValue in stride(from: 0,
+                        through: 400,
+                        by: 50) {
+    //Draw a line from and to the points shown in plan
+    canvas.drawLine(from: Point(x:someValue, y:0),
+                    to: Point(x:400, y:someValue))
+}
 /*:
  ## Show the Live View
  Don't see any results?
