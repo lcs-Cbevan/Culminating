@@ -120,8 +120,7 @@ for bamboo1body in stride(from: -160, through: 0, by: 40){
 canvas.drawEllipse(at: Point(x:-200, y:bamboo1body), width: 40, height: 100, borderWidth: 5)
 }
 
-
-        
+canvas.highPerformance = false
         /*:
          ## Show the Live View
          Don't see any results?
