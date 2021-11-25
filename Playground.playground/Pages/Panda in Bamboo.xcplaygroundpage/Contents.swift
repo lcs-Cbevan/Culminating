@@ -80,25 +80,30 @@ for forestDepth in stride(from: -300, through: 300, by: 2){
         
         for farBamboo in stride(from: -300,
                                 through: 300,
-                                by: 13.5){
-            canvas.drawLine(from: Point(x:farBamboo,y:300), to: Point(x:farBamboo, y:60))
+                                by: 10){
+           //Decide Shade of Green
+            let greenColor = Int.random(in: 3...10)
+            canvas.lineColor = Color(hue: 120, saturation: 80, brightness: 10*greenColor, alpha: 100)
+            
+            //Random Distances Between Bamboo Stalks
+            let bambooSeparation = Int.random(in: -50...50)
+            
+            canvas.defaultLineWidth = 5
+            canvas.drawLine(from: Point(x:Int(farBamboo)+bambooSeparation,y:300), to: Point(x:Int(farBamboo)+bambooSeparation, y:60))
         }
         
         
         
         //Draw Panda Face
-        p.goto(dx: 0, dy: 0)
         canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 95, alpha: 100)
         canvas.drawEllipse(at: Point(x: 0, y: 100), width: 120, height: 120, borderWidth: 5)
         p.goToOrigin()
-        p.goto(dx: 0, dy: 40)
+        
         
         //Draw Eyes
-        p.goto(dx: -20, dy: 80)
         canvas.fillColor = Color(hue: 0, saturation: 100, brightness: 0, alpha: 100)
-        canvas.drawEllipse(at: Point(x: 0, y: 0), width: 20, height: 20, borderWidth: 5)
-        p.goto(dx: 40, dy: 0)
-        canvas.drawEllipse(at: Point(x: 0, y: 0), width: 20, height: 20, borderWidth: 5)
+        canvas.drawEllipse(at: Point(x: -20, y: 120), width: 20, height: 20, borderWidth: 5)
+        canvas.drawEllipse(at: Point(x: 20, y: 120), width: 20, height: 20, borderWidth: 5)
         p.goToOrigin()
         
         //Draw Panda Body
@@ -119,6 +124,8 @@ canvas.fillColor = Color(hue: 114, saturation: 92, brightness: 81, alpha: 100)
 for bamboo1body in stride(from: -160, through: 0, by: 40){
 canvas.drawEllipse(at: Point(x:-200, y:bamboo1body), width: 40, height: 100, borderWidth: 5)
 }
+
+
 
 canvas.highPerformance = false
         /*:
