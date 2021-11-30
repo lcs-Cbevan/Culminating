@@ -45,7 +45,7 @@ PlaygroundPage.current.liveView = canvas
 //y: canvas.height / 2))
 
 // Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+//canvas.drawAxes(withScale: true, by: 20, color: .black)
 
 /*:
  ## Add your code
@@ -81,6 +81,7 @@ for verticalPosition in stride(from: 0, through: 400, by: 40){
         
         canvas.drawEllipse(at: Point(x:horizontalPosition, y:verticalPosition), width: 35, height: 35, borderWidth: 0)
         
+        
        // canvas.textColor = .red
         //canvas.drawText(message: "(\(horizontalPosition), \(verticalPosition))",
           //              at: Point(x: horizontalPosition - 20, y: verticalPosition - 5),
@@ -91,6 +92,21 @@ for verticalPosition in stride(from: 0, through: 400, by: 40){
 //Draw Green Background
 canvas.fillColor = .green
 canvas.drawRectangle(at: Point(x:0, y:400), width: 400, height: 200)
+
+//Text for Date
+canvas.textColor = .black
+canvas.drawText(message: "Saturday", at: Point(x:10 , y:560), size: 9, kerning: 0)
+canvas.drawText(message: "December 13 1986", at: Point(x:10 , y:550), size: 9, kerning: 0)
+canvas.drawText(message: "9PM, Age 21+", at: Point(x:10 , y:540), size: 9, kerning: 0)
+
+//Text for Location
+canvas.drawText(message: "At the Rat", at: Point(x:300 , y:560), size: 9, kerning: 0)
+canvas.drawText(message: "528 Commonwealth", at: Point(x:300 , y:550), size: 9, kerning: 0)
+canvas.drawText(message: "Boston, Massachussetts", at: Point(x:300 , y:540), size: 9, kerning: 0)
+
+
+
+canvas.drawAxes(withScale: true, by: 20, color: .red)
 /*:
  ## Show the Live View
  Don't see any results?
