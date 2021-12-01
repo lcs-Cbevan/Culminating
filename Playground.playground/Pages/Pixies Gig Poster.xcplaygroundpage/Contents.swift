@@ -95,18 +95,27 @@ canvas.drawRectangle(at: Point(x:0, y:400), width: 400, height: 200)
 
 //Text for Date
 canvas.textColor = .black
-canvas.drawText(message: "Saturday", at: Point(x:10 , y:560), size: 9, kerning: 0)
-canvas.drawText(message: "December 13 1986", at: Point(x:10 , y:550), size: 9, kerning: 0)
-canvas.drawText(message: "9PM, Age 21+", at: Point(x:10 , y:540), size: 9, kerning: 0)
+canvas.drawText(message: "saturday", at: Point(x:10 , y:560), size: 10, kerning: 0)
+canvas.drawText(message: "december 13 1986", at: Point(x:10 , y:545), size: 10, kerning: 0)
+canvas.drawText(message: "9PM, age 21+", at: Point(x:10 , y:530), size: 10, kerning: 0)
 
 //Text for Location
-canvas.drawText(message: "At the Rat", at: Point(x:300 , y:560), size: 9, kerning: 0)
-canvas.drawText(message: "528 Commonwealth", at: Point(x:300 , y:550), size: 9, kerning: 0)
-canvas.drawText(message: "Boston, Massachussetts", at: Point(x:300 , y:540), size: 9, kerning: 0)
+canvas.drawText(message: "at the Rat", at: Point(x:300 , y:560), size: 10, kerning: 0)
+canvas.drawText(message: "528 Commonwealth", at: Point(x:300 , y:545), size: 10, kerning: 0)
+canvas.drawText(message: "boston, mass.", at: Point(x:300 , y:530), size: 10, kerning: 0)
+
+//Title Text
+canvas.drawText(message: "pixies", at: Point(x: 10, y: 410), size: 65, kerning: 0)
+
+//Featuring Text
+canvas.textColor = .white
+canvas.drawText(message: "with", at: Point(x: 280, y: 455), size: 13, kerning: 0)
+canvas.drawText(message: "throwing muses", at: Point(x: 280, y: 440), size: 13, kerning: 0)
+canvas.drawText(message: "big dipper", at: Point(x: 280, y: 425), size: 13, kerning: 0)
 
 
 
-canvas.drawAxes(withScale: true, by: 20, color: .red)
+
 /*:
  ## Show the Live View
  Don't see any results?
