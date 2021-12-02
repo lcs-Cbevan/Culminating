@@ -4,7 +4,7 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 600
+let preferredWidth = 400
 let preferredHeight = 600
 /*:
  ## Required code
@@ -41,11 +41,11 @@ PlaygroundPage.current.liveView = canvas
  */
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
+//canvas.translate(to: Point(x: canvas.width / 2,
+                        //   y: canvas.height / 2))
 
 // Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+//canvas.drawAxes(withScale: true, by: 20, color: .black)
 
 /*:
  ## Add your code
@@ -58,21 +58,32 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
 
 // Begin writing your code below (you can remove the examples shown)
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
+//Draw Background
+let pink = Color(hue: 325, saturation: 100, brightness: 100, alpha: 100)
+//canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
+//Draw Rectangle Pattern
+canvas.lineColor = pink
+canvas.drawLine(from: Point(x: 200, y: 0), to: Point(x: 200, y: 400), lineWidth: 400, capStyle: .butt, dashed: false)
 
-// Go back to origin
-p.goToOrigin()
 
-// Change the pen color
-p.penColor = .red
+canvas.lineColor = .black
+canvas.drawLine(from: Point(x: 200, y: 0), to: Point(x: 200, y: 400), lineWidth: 375, capStyle: .butt, dashed: false)
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
+canvas.lineColor = pink
+canvas.drawLine(from: Point(x: 200, y: 0), to: Point(x: 200, y: 400), lineWidth: 350, capStyle: .butt, dashed: false)
 
+canvas.lineColor = .white
+canvas.drawLine(from: Point(x: 200, y: 0), to: Point(x: 200, y: 400), lineWidth: 325, capStyle: .butt, dashed: false)
+
+canvas.lineColor = pink
+canvas.drawLine(from: Point(x: 200, y: 0), to: Point(x: 200, y: 400), lineWidth: 300, capStyle: .butt, dashed: false)
+
+canvas.lineColor = .black
+canvas.drawLine(from: Point(x: 200, y: 0), to: Point(x: 200, y: 400), lineWidth: 275, capStyle: .butt, dashed: false)
+
+// Show a grid
+canvas.drawAxes(withScale: true, by: 20, color: .black)
 /*:
  ## Show the Live View
  Don't see any results?
