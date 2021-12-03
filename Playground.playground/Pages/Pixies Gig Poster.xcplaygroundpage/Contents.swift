@@ -80,13 +80,6 @@ for verticalPosition in stride(from: 0, through: 400, by: 40){
         }
         
         canvas.drawEllipse(at: Point(x:horizontalPosition, y:verticalPosition), width: 35, height: 35, borderWidth: 0)
-        
-        
-       // canvas.textColor = .red
-        //canvas.drawText(message: "(\(horizontalPosition), \(verticalPosition))",
-          //              at: Point(x: horizontalPosition - 20, y: verticalPosition - 5),
-            //            size: 8,
-              //          kerning: 0)
     }
 }
 //Draw Green Background
