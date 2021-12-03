@@ -60,44 +60,41 @@ PlaygroundPage.current.liveView = canvas
 
 //Draw Background
 let pink = Color(hue: 325, saturation: 100, brightness: 100, alpha: 100)
-//canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
 //Draw Pattern
-canvas.lineColor = pink
 for verticalWidth in stride(from: 400, through: 25, by: -25){
-    for horizontalWidth in stride(from: 400, through:25, by: -25){
-        
-        if verticalWidth.isMultiple(of: 10) {
-            canvas.lineColor = pink
-        } else if (verticalWidth + 25).isMultiple(of: 100){
-            canvas.lineColor = .black
-        } else if verticalWidth.isMultiple(of: 25) {
-            canvas.lineColor = .white
-        }
-    if verticalWidth == 25{
+    
+    if verticalWidth.isMultiple(of: 10) {
         canvas.lineColor = pink
-        
-        canvas.drawLine(from: Point(x: 200, y: 0), to: Point(x: 200, y: 400), lineWidth: verticalWidth, capStyle: .butt, dashed: false)
-           
-            if horizontalWidth.isMultiple(of: 10) {
-                canvas.lineColor = pink
-            } else if (horizontalWidth + 25).isMultiple(of: 100){
-                canvas.lineColor = .black
-            } else if horizontalWidth.isMultiple(of: 25) {
-                canvas.lineColor = .white
-            }
-            if horizontalWidth == 25 {
-                canvas.lineColor = pink
-            }
-            canvas.drawLine(from: Point(x: 0, y: 200), to: Point(x: 400, y: 200), lineWidth: horizontalWidth, capStyle: .butt, dashed: false)
-        
-        
-        
+    } else if (verticalWidth + 25).isMultiple(of: 100){
+        canvas.lineColor = .black
+    } else if verticalWidth.isMultiple(of: 25) {
+        canvas.lineColor = .white
     }
+    //        if verticalWidth == 25{
+    //            canvas.lineColor = pink
+    //        }
     
-    }
+    canvas.drawLine(from: Point(x: 200, y: 0), to: Point(x: 200, y: 400), lineWidth: verticalWidth, capStyle: .butt, dashed: false)
 }
+for horizontalWidth in stride(from: 400, through:25, by: -25){
     
+    if horizontalWidth.isMultiple(of: 10) {
+        canvas.lineColor = pink
+    } else if (horizontalWidth + 25).isMultiple(of: 100){
+        canvas.lineColor = .black
+    } else if horizontalWidth.isMultiple(of: 25) {
+        canvas.lineColor = .white
+    }
+    //        if horizontalWidth == 25 {
+    //            canvas.lineColor = pink
+    //        }
+    canvas.drawLine(from: Point(x: 0, y: 200), to: Point(x: 400, y: 200), lineWidth: horizontalWidth, capStyle: .butt, dashed: false)
+}
+
+
+
+
 
 
 
