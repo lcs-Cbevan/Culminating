@@ -1,6 +1,6 @@
 //: [Previous](@previous) / [Next](@next)
 /*:
-## Canvas size
+ ## Canvas size
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
@@ -42,7 +42,7 @@ PlaygroundPage.current.liveView = canvas
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
 //canvas.translate(to: Point(x: canvas.width / 2,
-  //                         y: canvas.height / 2))
+//                         y: canvas.height / 2))
 
 
 
@@ -50,24 +50,74 @@ PlaygroundPage.current.liveView = canvas
  ## Add your code
  
  Beginning on line 61, you can add your own code.
-  
+ 
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
-
+ 
  */
 
 // Begin writing your code below (you can remove the examples shown)
 
 
 //Square pattern (Simultaneously background and pattern)
-let darkblue = Color(hue: 240, saturation: 100, brightness: 60, alpha: 100)
-canvas.fillColor = darkblue
-for rectanglePattern in stride(from: 0, through: 400, by: 25){
 
-    canvas.drawRectangle(at: Point(x: 0, y: 0), width: 25, height: 25)
+//canvas.fillColor = darkblue
+for backgroundVertical in stride(from: 0, to: 400, by: 25){
+    for backgroundHorizontal in stride(from: 0, through: 400, by: 25){
 
+        if backgroundVertical == backgroundHorizontal {
+            canvas.fillColor = .black
+        } else {
+            canvas.fillColor = .blue
+        }
 
+        canvas.drawRectangle(at: Point(x: backgroundHorizontal, y: backgroundVertical), width: 25, height: 25)
+    }
 }
+
+//Draw Cross-lines
+for crossY in stride(from: 200, to: 400, by: 25){
+    for crossX in stride(from: 200, to: 400, by: 25){
+        
+        //Top Cross-line
+        if crossY + crossX == 575 {
+            canvas.fillColor = .black
+        } else if crossX == crossY {
+            canvas.fillColor = .black
+        } else {
+            canvas.fillColor = .blue
+        }
+        canvas.drawRectangle(at: Point(x: crossX, y: crossY), width: 25, height: 25)
+        
+        //Bottom Cross-line
+        if crossY-200 + crossX-200 == 175 {
+            canvas.fillColor = .black
+        } else if crossX-200 == crossY-200 {
+            canvas.fillColor = .black
+        } else {
+            canvas.fillColor = .blue
+        }
+        canvas.drawRectangle(at: Point(x: crossX-200, y: crossY-200), width: 25, height: 25)
+    }
+}
+
+//Corner Circle Patterns
+for circlePatternX in stride(from: 225, to: 380, by: 25){
+    for circlePatternY in stride(from: 20, through: 70, by: 25){
+        canvas.fillColor = .black
+        //Bottom corner
+        canvas.drawEllipse(at: Point(x: circlePatternX, y: circlePatternY), width: 20, height: 20, borderWidth: 5)
+        //Top Corner
+        canvas.drawEllipse(at: Point(x: circlePatternX-200, y: circlePatternY+300), width: 20, height: 20, borderWidth: 5)
+    }
+}
+//Tricorn (Loop that makes custom shape)
+var Tricorn: for 
+
+
+
+
 canvas.drawAxes(withScale: true, by: 20, color: .black)
+
 
 /*:
  ## Show the Live View
@@ -76,7 +126,7 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  Remember to show the Live View (1 then 2):
  
  ![timeline](timeline.png "Timeline")
-
+ 
  ## Use source control
  To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
  
