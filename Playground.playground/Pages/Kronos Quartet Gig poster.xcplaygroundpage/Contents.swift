@@ -59,8 +59,8 @@ PlaygroundPage.current.liveView = canvas
 
 
 //Square pattern (Simultaneously background and pattern)
+canvas.highPerformance = true
 
-//canvas.fillColor = darkblue
 for backgroundVertical in stride(from: 0, to: 400, by: 25){
     for backgroundHorizontal in stride(from: 0, through: 400, by: 25){
 
@@ -110,15 +110,26 @@ for circlePatternX in stride(from: 225, to: 380, by: 25){
         canvas.drawEllipse(at: Point(x: circlePatternX-200, y: circlePatternY+300), width: 20, height: 20, borderWidth: 5)
     }
 }
-//Tricorn (Loop that makes custom shape)
-var Tricorn: for 
+//Top Background and Text
+let darkBlue = Color(hue: 220, saturation: 100, brightness: 60, alpha: 100)
+canvas.fillColor = darkBlue
+canvas.drawRectangle(at: Point(x: 0, y: 400), width: 400, height: 200)
+canvas.textColor = .white
+//Date Text
+canvas.drawText(message: "Dec 13, 2021", at: Point(x: 30, y: 560), size: 10, kerning: 0)
+canvas.drawText(message: "In person", at: Point(x: 30, y: 548), size: 10, kerning: 0)
+//Location Text
+canvas.drawText(message: "KQED HQ", at: Point(x: 320, y: 560), size: 10, kerning: 0)
+canvas.drawText(message: "San Francisco, Cal", at: Point(x: 300, y: 548), size: 10, kerning: 0)
 
-
+//Title Text
+canvas.drawText(message: "KRONOS", at: Point(x: 40, y: 460), size: 50, kerning: 0)
+canvas.drawText(message: "QUARTET", at: Point(x: 40, y: 400), size: 50, kerning: 0)
 
 
 canvas.drawAxes(withScale: true, by: 20, color: .black)
 
-
+canvas.highPerformance = false
 /*:
  ## Show the Live View
  Don't see any results?
