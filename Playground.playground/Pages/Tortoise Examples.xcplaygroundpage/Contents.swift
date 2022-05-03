@@ -28,6 +28,8 @@ let canvas = Canvas(width: preferredWidth, height: preferredHeight)
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
 
+//Create Grid
+canvas.drawAxes(withScale: true, by: 10, color: .black)
 /*:
 ## Tortoise class
 
@@ -35,41 +37,89 @@ To use the Tortoise abstraction, just create an instance of the Tortoise class, 
 */
 
 // Create a turtle that will draw upon the canvas
-let turtle = Tortoise(drawingUpon: canvas)
-
-// Where is the turtle?
-turtle.currentPosition()
+let t = Tortoise(drawingUpon: canvas)
 
 //Set Scale
 let scale = 10
 
+//Functions:
+func turtArrow() {
+    t.currentPosition()
+    t.currentHeading()
+    t.drawSelf()
+}
+
+func drawArrow() {
+    //Draw back of arrow
+    t.right(by: 90)
+    t.penDown()
+    t.forward(steps: 2 * scale)
+    
+    turtArrow()
+
+    //Bottom lines of arrow
+    t.left(by: 90)
+    t.forward(steps: 5 * scale)
+    t.right(by: 90)
+    t.forward(steps: 1 * scale)
+    
+    turtArrow()
+    
+    //Lower point of arrow
+    t.left(by: 135)
+    t.forward(steps: 2 * Int(aDiagonal))
+    
+    turtArrow()
+
+    //Upper point of arrow
+    t.left(by: 90)
+    t.forward(steps: 2 * Int(aDiagonal))
+    turtArrow()
+
+    //Top line of arrow
+    t.left(by: 135)
+    t.forward(steps: 1 * scale)
+    t.right(by: 90)
+    t.forward(steps: 5 * scale)
+    
+    //Reset position
+    t.right(by: 180)
+    turtArrow()
+    t.penUp()
+}
+
 //Arrow diagonal
 let aDiagonal = sqrt(Double(scale*scale + scale*scale))
 
-//Move to center
-turtle.setPenSize(to: 1)
-turtle.setPenColor(to: .black)
-turtle.penUp()
-turtle.forward(steps: Int(25) * scale)
-turtle.left(by: 90)
-turtle.forward(steps: Int(25) * scale)
-turtle.currentPosition()
-turtle.right(by: 90)
+//Move to start
+t.setPenSize(to: 1)
+t.setPenColor(to: .black)
+t.penUp()
+t.forward(steps: 60)
+t.left(by: 90)
+t.forward(steps: 60)
+t.currentPosition()
+t.right(by: 90)
 
-//Draw back of arrow
-turtle.right(by: 90)
-turtle.penDown()
-turtle.forward(steps: scale)
+//Rows
+for _ in 1...9 {
+    //Draw Row
+    for _ in 1...5 {
+        drawArrow()
+        t.forward(steps: 8 * scale)
+    }
 
-//Bottom line of arrow
-turtle.left(by: 90)
-turtle.forward(steps: Int(5) * scale)
+    t.currentHeading()
+    t.currentPosition()
 
-//Point of arrow
-turtle.right(by: 90)
-turtle.forward(steps: 1 * scale)
-turtle.left(by: 135)
-turtle.forward(steps: Int(aDiagonal))
+    //Move to Second Row
+    t.left(by: 90)
+    t.forward(steps: 5 * scale + 2)
+    t.left(by: 90)
+    t.forward(steps: 40 * scale)
+    t.right(by: 180)
+}
+
 
 /*:
  ## Show the Assistant Editor
