@@ -39,14 +39,14 @@ PlaygroundPage.current.liveView = canvas
  If you do not wish to see a grid, comment out the code on line 48.
  
  */
-let scale = 10
+let scale = 20.0
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
 //canvas.translate(to: Point(x: canvas.width / 2,
                          //  y: canvas.height / 2))
 
 // Show a grid
-canvas.drawAxes(withScale: true, by: scale, color: .black)
+canvas.drawAxes(withScale: true, by: Int(scale), color: .black)
 
 /*:
  ## Add your code
@@ -56,50 +56,82 @@ canvas.drawAxes(withScale: true, by: scale, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
-let doubleInteriorAngle = 120
-let singleInteriorAngle = 60
+let doubleInteriorAngle = 114
+let singleInteriorAngle = 66
+let outerSideHypotenuse = 8.35
+let innerSideHypotenuse = 5.85
 
+func drawOutline() {
+    //Draw Top Skeleton
+    turtle.right(by: 90)
+    turtle.penDown()
+    turtle.forward(steps: 7 * Int(scale))
+
+    //Draw Right and Left Skeleton
+    turtle.left(by: 90)
+    turtle.forward(steps: Int(4.5 * scale))
+    turtle.right(by: 180)
+    turtle.forward(steps: 9 * Int(scale))
+
+    //Draw Bottom Skeleton
+    turtle.left(by: 180)
+    turtle.forward(steps: Int(4.5 * scale))
+    turtle.right(by: 90)
+    turtle.forward(steps: 7 * Int(scale))
+
+    //Draw Right Side
+    turtle.left(by: 147)
+    turtle.forward(steps: Int(outerSideHypotenuse * scale))
+    turtle.drawSelf()
+    turtle.left(by: Degrees(singleInteriorAngle))
+    turtle.forward(steps: Int(outerSideHypotenuse * scale))
+    turtle.currentPosition()
+
+    //Draw Left Side
+    turtle.left(by: Degrees(doubleInteriorAngle))
+    turtle.forward(steps: Int(outerSideHypotenuse * scale))
+    turtle.currentPosition()
+    turtle.left(by: Degrees(singleInteriorAngle))
+    turtle.forward(steps: Int(outerSideHypotenuse * scale))
+    turtle.drawSelf()
+}
 //Get Pen in position
 turtle.penUp()
 turtle.currentPosition()
-turtle.forward(steps: 8 * scale)
+turtle.forward(steps: 8 * Int(scale))
 turtle.left(by: 90)
-turtle.forward(steps: 16 * scale)
+turtle.forward(steps: 16 * Int(scale))
 turtle.right(by: 90)
 turtle.drawSelf()
 
-//Draw Top Skeleton
-turtle.right(by: 90)
+drawOutline()
+
+//Draw left of middle array
+turtle.penUp()
+turtle.left(by: 147)
+turtle.forward(steps: 2 * Int(scale))
 turtle.penDown()
-turtle.forward(steps: 7 * scale)
+turtle.left(by: 31)
+turtle.forward(steps: Int(innerSideHypotenuse * scale))
+turtle.right(by: 62)
+turtle.forward(steps: Int(innerSideHypotenuse * scale))
 
-//Draw Right and Left Skeleton
-turtle.left(by: 90)
-turtle.forward(steps: 4 * scale)
-turtle.right(by: 180)
-turtle.forward(steps: 8 * scale)
+//Draw right side of middle array
+turtle.right(by: 118)
+turtle.forward(steps: Int(innerSideHypotenuse * scale))
+turtle.right(by: 62)
+turtle.forward(steps: Int(innerSideHypotenuse * scale))
 
-//Draw Bottom Skeleton
-turtle.left(by: 180)
-turtle.forward(steps: 4 * scale)
-turtle.right(by: 90)
-turtle.forward(steps: 7 * scale)
-
-//Draw Right Side
-turtle.left(by: 149)
-turtle.forward(steps: 8 * scale)
+//Draw inner shape
+turtle.penUp()
 turtle.drawSelf()
-turtle.left(by: Degrees(singleInteriorAngle))
-turtle.forward(steps: 8 * scale + 2)
-turtle.currentPosition()
+turtle.right(by: 149)
+turtle.forward(steps: 4 * Int(scale))
+turtle.left(by: 30)
+turtle.forward(steps: Int(scale))
 
-//Draw Left Side
-turtle.left(by: Degrees(doubleInteriorAngle))
-turtle.forward(steps: 8 * scale)
-turtle.currentPosition()
-turtle.left(by: Degrees(singleInteriorAngle))
-turtle.forward(steps: 8 * scale + 2)
-turtle.currentPosition()
+
+
 
 /*:
  ## Show the Live View
