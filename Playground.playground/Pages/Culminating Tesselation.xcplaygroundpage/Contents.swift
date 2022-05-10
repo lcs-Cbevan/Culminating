@@ -39,13 +39,14 @@ PlaygroundPage.current.liveView = canvas
  If you do not wish to see a grid, comment out the code on line 48.
  
  */
+let scale = 10
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
+//canvas.translate(to: Point(x: canvas.width / 2,
+                         //  y: canvas.height / 2))
 
 // Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+canvas.drawAxes(withScale: true, by: scale, color: .black)
 
 /*:
  ## Add your code
@@ -55,23 +56,50 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+let doubleInteriorAngle = 120
+let singleInteriorAngle = 60
 
-// Begin writing your code below (you can remove the examples shown)
+//Get Pen in position
+turtle.penUp()
+turtle.currentPosition()
+turtle.forward(steps: 8 * scale)
+turtle.left(by: 90)
+turtle.forward(steps: 16 * scale)
+turtle.right(by: 90)
+turtle.drawSelf()
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
+//Draw Top Skeleton
+turtle.right(by: 90)
+turtle.penDown()
+turtle.forward(steps: 7 * scale)
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
+//Draw Right and Left Skeleton
+turtle.left(by: 90)
+turtle.forward(steps: 4 * scale)
+turtle.right(by: 180)
+turtle.forward(steps: 8 * scale)
 
-// Go back to origin
-p.goToOrigin()
+//Draw Bottom Skeleton
+turtle.left(by: 180)
+turtle.forward(steps: 4 * scale)
+turtle.right(by: 90)
+turtle.forward(steps: 7 * scale)
 
-// Change the pen color
-p.penColor = .red
+//Draw Right Side
+turtle.left(by: 149)
+turtle.forward(steps: 8 * scale)
+turtle.drawSelf()
+turtle.left(by: Degrees(singleInteriorAngle))
+turtle.forward(steps: 8 * scale + 2)
+turtle.currentPosition()
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
+//Draw Left Side
+turtle.left(by: Degrees(doubleInteriorAngle))
+turtle.forward(steps: 8 * scale)
+turtle.currentPosition()
+turtle.left(by: Degrees(singleInteriorAngle))
+turtle.forward(steps: 8 * scale + 2)
+turtle.currentPosition()
 
 /*:
  ## Show the Live View
