@@ -136,7 +136,7 @@ func drawDiamond() {
 turtle.drawSelf()
 turtle.penUp()
 turtle.currentPosition()
-turtle.forward(steps: 8 * Int(scale))
+turtle.forward(steps: Int(9.5 * scale))
 turtle.left(by: 90)
 turtle.forward(steps: 16 * Int(scale))
 turtle.right(by: 90)
@@ -144,12 +144,49 @@ turtle.right(by: 90)
 turtle.currentHeading()
 turtle.currentPosition()
 
+
 drawDiamond()
 turtle.penUp()
 
-
+//First Row
+for _ in 1...4{
+turtle.forward(steps: 10 * Int(scale))
+drawDiamond()
+}
 turtle.currentPosition()
 turtle.currentHeading()
+
+
+//Move to Inner Row
+turtle.left(by: 90)
+turtle.forward(steps: 7 * Int(scale))
+turtle.left(by: 90)
+turtle.forward(steps: 35 * Int(scale))
+turtle.right(by: 180)
+turtle.currentHeading()
+turtle.currentPosition()
+
+//Inner Row
+for _ in 1...4 {
+drawDiamond()
+    turtle.forward(steps: 10 * Int(scale))
+}
+turtle.currentHeading()
+turtle.currentPosition()
+
+//Move to Outer Row
+turtle.left(by: 90)
+turtle.forward(steps: 7 * Int(scale))
+turtle.left(by: 90)
+turtle.forward(steps: 45 * Int(scale))
+turtle.right(by: 180)
+
+//Outer Row
+for _ in 1...5 {
+drawDiamond()
+    turtle.forward(steps: 10 * Int(scale))
+}
+
 /*:
  ## Show the Live View
  Don't see any results?
