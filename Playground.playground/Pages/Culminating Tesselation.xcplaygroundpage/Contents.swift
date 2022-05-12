@@ -39,7 +39,7 @@ PlaygroundPage.current.liveView = canvas
  If you do not wish to see a grid, comment out the code on line 48.
  
  */
-let scale = 20.0
+let scale = 10.0
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
 //canvas.translate(to: Point(x: canvas.width / 2,
@@ -60,8 +60,9 @@ let doubleInteriorAngle = 114
 let singleInteriorAngle = 66
 let outerSideHypotenuse = 8.35
 let innerSideHypotenuse = 5.85
+let smallDiamondSide = 1.17
 
-func drawOutline() {
+func drawDiamond() {
     //Draw Top Skeleton
     turtle.right(by: 90)
     turtle.penDown()
@@ -82,7 +83,6 @@ func drawOutline() {
     //Draw Right Side
     turtle.left(by: 147)
     turtle.forward(steps: Int(outerSideHypotenuse * scale))
-    turtle.drawSelf()
     turtle.left(by: Degrees(singleInteriorAngle))
     turtle.forward(steps: Int(outerSideHypotenuse * scale))
     turtle.currentPosition()
@@ -93,45 +93,55 @@ func drawOutline() {
     turtle.currentPosition()
     turtle.left(by: Degrees(singleInteriorAngle))
     turtle.forward(steps: Int(outerSideHypotenuse * scale))
+    
+    //Draw left of middle array
+    turtle.penUp()
+    turtle.left(by: 147)
+    turtle.forward(steps: 2 * Int(scale))
+    turtle.penDown()
+    turtle.left(by: 31)
+    turtle.forward(steps: Int(innerSideHypotenuse * scale))
+    turtle.right(by: 62)
+    turtle.forward(steps: Int(innerSideHypotenuse * scale))
+
+    //Draw right side of middle array
+    turtle.right(by: 118)
+    turtle.forward(steps: Int(innerSideHypotenuse * scale))
+    turtle.right(by: 62)
+    turtle.forward(steps: Int(innerSideHypotenuse * scale))
+
+    //Draw inner shape
+    turtle.penUp()
+    turtle.right(by: 149)
+    turtle.forward(steps: 4 * Int(scale))
+    turtle.penDown()
+    turtle.left(by: 30)
+    turtle.forward(steps: Int(smallDiamondSide * scale))
+    turtle.right(by: 60)
+    turtle.forward(steps: Int(smallDiamondSide * scale))
+    turtle.right(by: 120)
+    turtle.forward(steps: Int(smallDiamondSide * scale))
+    turtle.right(by: 60)
+    turtle.forward(steps: Int(smallDiamondSide * scale))
+    //To top of shape
+    turtle.penUp()
+    turtle.left(by: 210)
+    turtle.forward(steps: 8 * Int(scale))
     turtle.drawSelf()
+
 }
 //Get Pen in position
+turtle.drawSelf()
 turtle.penUp()
 turtle.currentPosition()
 turtle.forward(steps: 8 * Int(scale))
 turtle.left(by: 90)
 turtle.forward(steps: 16 * Int(scale))
 turtle.right(by: 90)
-turtle.drawSelf()
 
-drawOutline()
-
-//Draw left of middle array
+drawDiamond()
 turtle.penUp()
-turtle.left(by: 147)
-turtle.forward(steps: 2 * Int(scale))
-turtle.penDown()
-turtle.left(by: 31)
-turtle.forward(steps: Int(innerSideHypotenuse * scale))
-turtle.right(by: 62)
-turtle.forward(steps: Int(innerSideHypotenuse * scale))
-
-//Draw right side of middle array
-turtle.right(by: 118)
-turtle.forward(steps: Int(innerSideHypotenuse * scale))
-turtle.right(by: 62)
-turtle.forward(steps: Int(innerSideHypotenuse * scale))
-
-//Draw inner shape
-turtle.penUp()
-turtle.drawSelf()
-turtle.right(by: 149)
-turtle.forward(steps: 4 * Int(scale))
-turtle.left(by: 30)
-turtle.forward(steps: Int(scale))
-
-
-
+    
 
 /*:
  ## Show the Live View
