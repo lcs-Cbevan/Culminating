@@ -127,9 +127,11 @@ func drawDiamond() {
     turtle.penUp()
     turtle.left(by: 210)
     turtle.forward(steps: 8 * Int(scale))
-    turtle.drawSelf()
+    turtle.right(by: 90)
 
 }
+
+
 //Get Pen in position
 turtle.drawSelf()
 turtle.penUp()
@@ -139,10 +141,15 @@ turtle.left(by: 90)
 turtle.forward(steps: 16 * Int(scale))
 turtle.right(by: 90)
 
+turtle.currentHeading()
+turtle.currentPosition()
+
 drawDiamond()
 turtle.penUp()
-    
 
+
+turtle.currentPosition()
+turtle.currentHeading()
 /*:
  ## Show the Live View
  Don't see any results?
