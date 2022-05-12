@@ -158,7 +158,7 @@ turtle.currentPosition()
 turtle.currentHeading()
 
 //Repeating Rows
-for _ in 1...4{
+for _ in 1...3{
 
 //Move to Inner Row
 turtle.left(by: 90)
