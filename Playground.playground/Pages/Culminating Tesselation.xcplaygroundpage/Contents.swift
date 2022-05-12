@@ -144,9 +144,10 @@ turtle.right(by: 90)
 turtle.currentHeading()
 turtle.currentPosition()
 
-
 drawDiamond()
 turtle.penUp()
+
+
 
 //First Row
 for _ in 1...4{
@@ -156,6 +157,8 @@ drawDiamond()
 turtle.currentPosition()
 turtle.currentHeading()
 
+//Repeating Rows
+for _ in 1...4{
 
 //Move to Inner Row
 turtle.left(by: 90)
@@ -165,11 +168,11 @@ turtle.forward(steps: 35 * Int(scale))
 turtle.right(by: 180)
 turtle.currentHeading()
 turtle.currentPosition()
-
-//Inner Row
-for _ in 1...4 {
 drawDiamond()
-    turtle.forward(steps: 10 * Int(scale))
+//Inner Row
+for _ in 1...3 {
+turtle.forward(steps: 10 * Int(scale))
+    drawDiamond()
 }
 turtle.currentHeading()
 turtle.currentPosition()
@@ -178,14 +181,17 @@ turtle.currentPosition()
 turtle.left(by: 90)
 turtle.forward(steps: 7 * Int(scale))
 turtle.left(by: 90)
-turtle.forward(steps: 45 * Int(scale))
+turtle.forward(steps: 35 * Int(scale))
 turtle.right(by: 180)
+drawDiamond()
 
 //Outer Row
-for _ in 1...5 {
-drawDiamond()
+for _ in 1...4 {
     turtle.forward(steps: 10 * Int(scale))
+    drawDiamond()
 }
+}
+
 
 /*:
  ## Show the Live View
